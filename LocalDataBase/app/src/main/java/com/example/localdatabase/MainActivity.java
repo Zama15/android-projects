@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     protected void insert() {
-        if ( validInput() ) {
+        if ( !validInput() ) {
             return;
         }
 
@@ -178,6 +178,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void edit() {
+        if (campoId.getText().toString().isEmpty()) {
+            Toast.makeText(this, "Invalid ID", Toast.LENGTH_SHORT).show();
+
+            return;
+        }
         if ( !validInput() ) {
             return;
         }
@@ -196,6 +201,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void delete() {
+        if (campoId.getText().toString().isEmpty()) {
+            Toast.makeText(this, "Invalid ID", Toast.LENGTH_SHORT).show();
+
+            return;
+        }
+
         SQLiteDatabase db = connect.getWritableDatabase();
         String[] params = {campoId.getText().toString()};
 
