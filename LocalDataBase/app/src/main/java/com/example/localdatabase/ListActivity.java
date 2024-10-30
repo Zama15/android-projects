@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -57,14 +57,60 @@ public class ListActivity extends AppCompatActivity implements AdapterView.OnIte
         SQLiteDatabase db = connect.getReadableDatabase();
         Users user;
         usersData = new ArrayList<>();
-        Cursor cursor = db.rawQuery(String.format("SELECT * FROM %s", Variables.NAME_TABLE), null);
+
+        Intent intent = getIntent();
+        String whereClause = intent.getStringExtra("whereClause");
+        String[] whereArgs = intent.getStringArrayExtra("whereArgs");
+        Boolean sort = intent.getBooleanExtra("sorted", false);
+
+        Cursor cursor;
+
+        if (whereClause != null && whereArgs != null) {
+            // Search results case
+            String query = String.format("SELECT * FROM %s WHERE %s",
+                    Variables.NAME_TABLE,
+                    whereClause);
+
+            if (sort) {
+                query += String.format(" ORDER BY %s ASC", Variables.CAMPO_NAME);
+            }
+
+            cursor = db.rawQuery(query, whereArgs);
+        } else {
+            // Normal list case
+            if (sort) {
+                cursor = db.rawQuery(
+                        String.format("SELECT * FROM %s ORDER BY %s ASC",
+                                Variables.NAME_TABLE,
+                                Variables.CAMPO_NAME),
+                        null
+                );
+            } else {
+                cursor = db.rawQuery(
+                        String.format("SELECT * FROM %s", Variables.NAME_TABLE),
+                        null
+                );
+            }
+        }
+
         while (cursor.moveToNext()) {
             user = new Users();
             user.setId(cursor.getInt(0));
             user.setName(cursor.getString(1));
-            user.setPhone(cursor.getString(2));
+            user.setLastName(cursor.getString(2));
+            user.setPhone(cursor.getString(3));
+            user.setAge(Integer.parseInt(cursor.getString(4)));
+            user.setSex(cursor.getString(5));
+            user.setBirthday(cursor.getString(6));
+            user.setHeight(Double.parseDouble(cursor.getString(7)));
+
             usersData.add(user);
         }
+
+        if (usersData.isEmpty()) {
+            Toast.makeText(this, "No users found", Toast.LENGTH_SHORT).show();
+        }
+
         cursor.close();
         db.close();
     }
@@ -93,7 +139,7 @@ class UserAdapter extends ArrayAdapter<Users> {
 
         Users user = usersList.get(position);
         textId.setText(String.valueOf(user.getId()));
-        textName.setText(user.getName());
+        textName.setText(user.getName() + " " + user.getLastName());
         textPhone.setText(user.getPhone());
 
         return convertView;

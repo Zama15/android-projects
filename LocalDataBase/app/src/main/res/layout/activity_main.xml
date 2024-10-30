@@ -4,8 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,21 +22,56 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/campoLastName"
+        android:hint="Last Name"
+        android:autofillHints="none"
+        android:inputType="text"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/campoPhone"
         android:hint="Phone"
         android:autofillHints="phone"
         android:inputType="phone"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/campoAge"
+        android:hint="Age"
+        android:autofillHints="none"
+        android:inputType="numberSigned"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/campoSex"
+        android:hint="Sex (F/M)"
+        android:autofillHints="none"
+        android:inputType="text"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/campoBirthday"
+        android:hint="Birthday (DD/MM/YYYY)"
+        android:autofillHints="none"
+        android:inputType="text"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/campoHeight"
+        android:hint="Height"
+        android:autofillHints="none"
+        android:inputType="numberDecimal"/>
     <Button
         android:id="@+id/insert"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Insertar"
+        android:text="Insert"
         android:layout_margin="4dp"/>
     <Button
         android:id="@+id/search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Buscar"
+        android:text="Search"
         android:layout_margin="4dp"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,7 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Editar"
+            android:text="Edit"
             android:layout_margin="4dp"
             android:textColor="@color/purple_700"
             app:backgroundTint="@color/white"/>
@@ -58,15 +92,45 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Eliminar"
+            android:text="Delete"
             android:layout_margin="4dp"
             android:textColor="@color/purple_700"
             app:backgroundTint="@color/white"/>
     </LinearLayout>
-    <Button
-        android:id="@+id/seeMore"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ver"
-        android:layout_margin="4dp"/>
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/seeMore"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="See List"
+            android:layout_margin="4dp"
+            android:textColor="@color/purple_700"
+            app:backgroundTint="@color/white"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/seeMoreSorted"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="See List Sorted By Name"
+            android:layout_margin="4dp"
+            android:textColor="@color/purple_700"
+            app:backgroundTint="@color/white"/>
+    </LinearLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/reset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RESET DATABASE"
+        android:layout_marginHorizontal="4dp"
+        app:backgroundTint="@android:color/holo_red_light"/>
 </LinearLayout>

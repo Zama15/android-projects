@@ -51,7 +51,55 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/labelName"
         app:layout_constraintBottom_toBottomOf="@id/labelName"
-        tools:text="John Doe" />
+        tools:text="John" />
+
+    <!-- User Last Name -->
+    <TextView
+        android:id="@+id/labelLastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Last Name"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelName" />
+
+    <TextView
+        android:id="@+id/textLastName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/labelLastName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/labelLastName"
+        app:layout_constraintBottom_toBottomOf="@id/labelLastName"
+        tools:text="Doe" />
+
+    <!-- User Phone -->
+    <TextView
+        android:id="@+id/labelPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelLastName" />
+
+    <TextView
+        android:id="@+id/textPhone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/labelPhone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/labelPhone"
+        app:layout_constraintBottom_toBottomOf="@id/labelPhone"
+        tools:text="+1 234 567 8900" />
 
     <!-- User Age -->
     <TextView
@@ -63,7 +111,7 @@
         android:textSize="16sp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/labelName" />
+        app:layout_constraintTop_toBottomOf="@id/labelPhone" />
 
     <TextView
         android:id="@+id/textAge"
@@ -76,4 +124,76 @@
         app:layout_constraintTop_toTopOf="@id/labelAge"
         app:layout_constraintBottom_toBottomOf="@id/labelAge"
         tools:text="18" />
+
+    <!-- User Sex -->
+    <TextView
+        android:id="@+id/labelSex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sex"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelAge" />
+
+    <TextView
+        android:id="@+id/textSex"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/labelSex"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/labelSex"
+        app:layout_constraintBottom_toBottomOf="@id/labelSex"
+        tools:text="M/F" />
+
+    <!-- User Birthday -->
+    <TextView
+        android:id="@+id/labelBirthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Birthday"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelSex" />
+
+    <TextView
+        android:id="@+id/textBirthday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/labelBirthday"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/labelBirthday"
+        app:layout_constraintBottom_toBottomOf="@id/labelBirthday"
+        tools:text="+1 234 567 8900" />
+
+    <!-- User Height -->
+    <TextView
+        android:id="@+id/labelHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Height"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelBirthday" />
+
+    <TextView
+        android:id="@+id/textHeight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/labelHeight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/labelHeight"
+        app:layout_constraintBottom_toBottomOf="@id/labelHeight"
+        tools:text="180" />
 </androidx.constraintlayout.widget.ConstraintLayout>
